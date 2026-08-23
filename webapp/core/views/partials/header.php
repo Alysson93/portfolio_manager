@@ -1,7 +1,11 @@
-<header>
+<header class="apa-flex">
     <h1><a href="/">MeuPortfolio</a></h1>
-    <ul>
+    <ul class="apa-flex">
         <li><a href="/">Home</a></li>
+        <?php if (!isset($_SESSION['token'])) { ?>
         <li><a href="/acesso">Entre ou cadastre-se!</a></li>
+        <?php } else { ?>
+        <li><a href="/acesso/sair">Sair</a></li>
+        <?php } ?>
     </ul>
 </header>

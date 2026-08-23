@@ -15,7 +15,7 @@ class Request {
         if (!empty($query)) {
             $endpoint .= '?' . http_build_query($query);
         }
-        return $this->request('GET', $endpoint, $token);
+        return $this->request('GET', $endpoint, null, $token);
     }
 
     public function put(string $endpoint, array $data = [], ?string $token = null): array

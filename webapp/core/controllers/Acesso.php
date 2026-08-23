@@ -9,6 +9,7 @@ class Acesso extends Controller {
                 $body = ['username' => $data['username'], 'password' => $data['password']];
                 $resultado = $request->post('/auth/token', $body);
                 SessionManager::salvarToken($resultado['token']);
+                Redirect::redirecionar('mp/'.$data['username']);
             } else if (isset($data['signup'])) {
                 $body = [
                     'username' => $data['username'],
@@ -20,10 +21,15 @@ class Acesso extends Controller {
                     'phone' => $data['phone']
                 ];
                 $resultado = $request->post('/users', $body);
-                var_dump($resultado);
+                Redirect::redirecionar('mp/'.$data['username']);
             }
         }
         $this->view('sign', $data);
+    }
+
+    public function sair() {
+        SessionManager::destruirToken();
+        Redirect::redirecionar();
     }
 
 }

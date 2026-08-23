@@ -8,7 +8,7 @@
     <input type="password" id="password1" name="password" required
         value="<?=isset($data['password']) ? $data['password'] : '' ?>"
     >
-    <input type="submit" name="signin" value="Acessar">
+    <input type="submit" name="signin" class="apa-btn" value="Acessar">
 </form>
 
 <h2>Ainda não possui conta? Cadastre-se aqui:</h2>
@@ -41,5 +41,5 @@
     <input type="text" id="phone" name="phone" placeholder="Ex: (00) 9 1234 - 5678" required
         value="<?=isset($data['phone']) ? $data['phone'] : '' ?>"
     >
-    <input type="submit" name="signup" value="Cadastrar">
+    <input type="submit" name="signup" class="apa-btn" value="Cadastrar">
 </form>
