@@ -2,9 +2,10 @@
 class Mp extends Controller {
 
     public function index($username) {
+        $this->auth();
         $request = new Request();
-        $user = $request->get('/users/'.$username, [], $token = $_SESSION['token']);
-        var_dump($user);
+        $data = $request->get('/users/'.$username, [], $token = $_SESSION['token']);
+        $this->view('profile', $data['user']);
     }
 
 }
