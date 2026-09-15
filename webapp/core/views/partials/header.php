@@ -5,6 +5,7 @@
         <?php if (!isset($_SESSION['token'])) { ?>
         <li><a href="/acesso">Entre ou cadastre-se!</a></li>
         <?php } else { ?>
+        <li><a href="/mp/<?=$_SESSION['username']?>">Perfil</a></li>
         <li><a href="/acesso/sair">Sair</a></li>
         <?php } ?>
     </ul>

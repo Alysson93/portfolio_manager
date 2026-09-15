@@ -8,7 +8,7 @@ class Acesso extends Controller {
             if (isset($data['signin'])) {
                 $body = ['username' => $data['username'], 'password' => $data['password']];
                 $resultado = $request->post('/auth/token', $body);
-                SessionManager::salvarToken($resultado['token']);
+                SessionManager::salvarToken($resultado['token'], $data['username']);
                 Redirect::redirecionar('mp/'.$data['username']);
             } else if (isset($data['signup'])) {
                 $body = [
