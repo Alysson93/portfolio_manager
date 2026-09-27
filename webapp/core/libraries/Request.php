@@ -60,6 +60,8 @@ class Request {
         $response = curl_exec($curl);
 
         if ($response === false) {
+            $error = curl_error($curl);
+            curl_close($curl);
             throw new Exception(curl_error($curl));
         }
 
@@ -67,15 +69,10 @@ class Request {
 
         curl_close($curl);
 
-        $body = json_decode($response, true);
-
-        if ($httpCode >= 400) {
-            throw new Exception(
-                $body['message'] ?? "Erro HTTP {$httpCode}"
-            );
-        }
-
-        return $body ?? [];
+        return [
+            'status' => $httpCode,
+            'body' =>  json_decode($response, true)
+        ];
     }
 
 }

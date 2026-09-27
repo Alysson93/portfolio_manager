@@ -4,23 +4,21 @@ O "MeuPortfolio" é um projeto de gerenciamento de portfólio, onde o usuário p
 
 ## Instalação
 
-* Este projeto precisa do PHP8.3 e do PostgreSQL. Caso não tenha estas ferramentas, use o gerenciador de pacotes do Linux [apt] para executar a instalação em sua máquina:
+* Este projeto precisa do PHP8.3, do Nginx e do PostgreSQL. Caso não tenha estas ferramentas, use o gerenciador de pacotes do Linux [apt] para executar a instalação em sua máquina:
 
 ```
+$ sudo apt install nginx
 $ sudo apt install postgresql
-$ sudo apt install php-8.3 php-pgsql php-curl
+$ sudo apt install php-8.3 php-fpm php-pgsql php-curl
 ```
 
 
 ## Iniciar o projeto
 
-* Crie o arquivo 'consts.php' nos diretórios 'webapp' e 'api' seguindo os moldes do arquivo de seus arquivos 'consts.example.php' correspondentes.
+* Em seu servidor nginx, na pasta /etc/sites-avaliable, crie um arquivo (ou use o default) para colar as instruções listadas em 'infra/nginx.conf'.
 
 * Acessando seu usuário postgres, execute os comandos listados no arquivo 'infra/database.sql' para configurar seu banco de dados.
 
-* Enquanto não adicionamos um servidor como Nginx ou Apache, podemos rodar o sistema com o servidor embutido do php:
+* Crie o arquivo 'consts.php' nos diretórios 'webapp' e 'api' seguindo os moldes do arquivo de seus arquivos 'consts.example.php' correspondentes.
 
-```
-$ php -S <endereco-colocado-no-arquivo-consts.php> -t api/public
-$ php -S <endereco-colocado-no-arquivo-consts.php> -t webapp/public
-```
+* A API estatá disponível em localhost:8001, enquanto o webapp, em localhost:8002.

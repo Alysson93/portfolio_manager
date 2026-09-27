@@ -17,7 +17,7 @@ class UserService {
         else {
             $user = $this->repository->checkCredentials($data['username'], $data['password']);
             if ($user) $response = ['success' => true, 'user' => $user];
-            else $response['errors'] = ['login_error' => 'Username ou senha incorretos;'];
+            else $response['errors'] = ['login_error' => 'Username ou senha incorretos.'];
         }
         return $response;
     }

@@ -8,3 +8,5 @@ const DB = [
     'NAME' => 'meuportfolio',
     'PORT' => 5432
 ];
+
+define('WEB_URL', 'http://localhost:8002');

@@ -4,8 +4,9 @@ class Mp extends Controller {
     public function index($username) {
         $this->auth();
         $request = new Request();
-        $data = $request->get('/users/'.$username, [], $token = $_SESSION['token']);
-        $this->view('profile', $data['user']);
+        $response = $request->get('/users/'.$username, [], $token = $_SESSION['token']);
+        if ($response['status'] == 200)
+            $this->view('profile', $response['body']['user']);
     }
 
 }
