@@ -1,6 +1,11 @@
 <?php
 class Acesso extends Controller {
 
+    public function __construct() {
+        if (isset($_SESSION['token']))
+            Redirect::redirecionar('mp/'.$_SESSION['username']);
+    }
+
     public function index() {
         $data = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         
@@ -13,7 +18,7 @@ class Acesso extends Controller {
                     SessionManager::salvarToken($resultado['body']['token'], $data['username']);
                     Redirect::redirecionar('mp/'.$data['username']);
                 } else
-                    $data['error'] = $resultado['status'] == 401 ? $resultado['body']['errors']['login_error'] : 'Erro interno';
+                    $data['signin_erro'] = $resultado['status'] == 401 ? $resultado['body']['errors']['login_error'] : 'Erro interno';
         
             } else if (isset($data['signup'])) {
                 $body = [
@@ -29,7 +34,7 @@ class Acesso extends Controller {
                 if ($resultado['status'] == 201)
                     Redirect::redirecionar('acesso');
                 else 
-                    $data['errors'] = $resultado['body']['errors'];
+                    $data['signup_errors'] = $resultado['body']['errors'];
             }
         }
         $this->view('sign', $data);

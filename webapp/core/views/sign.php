@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="<?=WEB_URL?>/css/sign.css">
 
 <div id="signin">
-    <?php if (isset($data['error'])) { ?>
-        <span><?= $data['error'] ?></span>
+    <?php if (isset($data['signin_erro'])) { ?>
+        <span><?= $data['signin_erro'] ?></span>
     <?php } ?>
     <h2>Acesse a sua conta:</h2>
     <form method="post" action="<?=WEB_URL?>/acesso">
