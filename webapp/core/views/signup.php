@@ -1,27 +1,9 @@
-<link rel="stylesheet" href="<?=WEB_URL?>/css/sign.css">
-
-<div id="signin">
-    <?php if (isset($data['signin_erro'])) { ?>
-        <span><?= $data['signin_erro'] ?></span>
-    <?php } ?>
-    <h2>Acesse a sua conta:</h2>
-    <form method="post" action="<?=WEB_URL?>/acesso">
-        <label for="username1">Username</label>
-        <input type="text" id="username1" name="username" required
-            value="<?=isset($data['username']) ? $data['username'] : '' ?>" 
-        >
-        <label for="password1">Senha</label>
-        <input type="password" id="password1" name="password" required
-            value="<?=isset($data['password']) ? $data['password'] : '' ?>"
-        >
-        <input type="submit" name="signin" class="apa-btn" value="Acessar">
-    </form>
-    <p>Ainda não é cadastrado? Cadastre-se <button type="button" class="apa-btn" onClick="changeForm()">aqui.</button></p>
-</div>
+olá
+<!-- <link rel="stylesheet" href="<?=WEB_URL?>/css/sign.css">
 
 <div id="signup">
     <h2>Crie a sua conta!</h2>
-    <form method="post" action="<?=WEB_URL?>/acesso">
+    <form method="post" action="<?=WEB_URL?>/acesso/entrar">
         <label for="username2">Username</label>
         <input type="text" id="username2" name="username" required
             value="<?=isset($data['username']) ? $data['username'] : '' ?>"
@@ -52,7 +34,5 @@
         >
         <input type="submit" name="signup" class="apa-btn" value="Cadastrar">
     </form>
-    <p>Já possui a sua conta? Acesse <button type="button" class="apa-btn" onClick="changeForm()">aqui.</button></p>
-</div>
-
-<script src="<?=WEB_URL?>/js/sign.js"></script>
+    <p>Já possui a sua conta? Acesse <button type="button" class="apa-btn">aqui.</button></p>
+</div> -->
