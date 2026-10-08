@@ -21,9 +21,9 @@ class Acesso extends Controller {
             ];
             $resultado = $request->post('/users', $body);
             if ($resultado['status'] == 201)
-                Redirect::redirecionar('acesso');
+                $this->entrar();
             else 
-                $data['signup_errors'] = $resultado['body']['errors'];
+                $data['erros'] = $resultado['body']['errors'];
         }
         $this->view('signup', $data);
     }
